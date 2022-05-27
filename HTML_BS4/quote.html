@@ -261,62 +261,79 @@
 			<!-- /BUTTON CALLOUT -->
 
 
-			<div id="number-of-apartments">
-				<label>N. of Apartements *</label>
-				<input
+			<!-- FORM QUOTATION FOR ELEVATORS IN JAVASCRIPT -->
+
+			<section id="quote">
+				<div class="container">
+
+					<header class="text-center mb-60">
+						<h2>Please fill the following fields</h2>
+						<!-- <p class="lead font-lato">Elevate your future</p> -->
+						<hr />
+					</header>
+
+
+
+					<form action="" method="post" id="quote">
+
+					<div>
+								
+							<label for="quote:building-type">Building type</label>
+							<select id="building-type" name="quote[building-type]">
+								<option value="">--- Select ---</option>
+								<option id="residential" value="residential">Residential</option>
+								<option id="commercial" value="commercial">Commercial</option>
+								<option id="corporate" value="corporate">Corporate</option>
+								<option id="hybird" value="hybrid">Hybrid</option> 	
+							</select>
+					</div>
+
+				
+					<div id="number-of-apartments">
+						<label>N. of Apartements *</label>
+						<input type="text" value="" name="" id="">
+					</div>
+					<div id="number-of-floors">
+						<label>N. of Floors *</label>
+						<input type="text" value="" name="" id="">
+					</div>
+					<div id="number-of-basements">
+						<label>N. of Basements *</label>
+						<input type="text" value="" name="" id="">
+					</div>
+					<div id="number-of-compagnies">
+						<label>N. of Companies *</label>
+						<input type="text" value="" name="" id="">
+					</div>
+					<div id="number-of-parking-spots">
+						<label>N. of Parking Spots *</label>
+						<input type="text" value="" name="" id="">
+					</div>
+					<div id="number-of-elevators">
+						<label>N. of Elevators *</label>
+						<input type="text" value="" name="" id="" readonly="readonly">
+					</div>
+					<div id="number-of-corporations">
+						<label>N. of Corporations *</label>
+						<input type="text" value="" name="" id="">
+					</div>
+					<div id="maximum-occupancy">
+						<label>Maximum Occupancy *</label>
+						<input type="text" value="" name="" id="">
+					</div>
+					<div id="business-hours">
+						<label>Business Hours *</label>
+						<input type="text" value="" name="" id="">
+					</div>
+					</form>
+
+				</div>
+
 			</div>
-
-
-
-
-
-
 			
-			<!-- Services ruban sous le slider 3 choses : prix, résidentiel, commercial videos à corriger ou enlever -->
-			<section id="services">
-				<div class="container">
-
-					<div class="row">
-						
-						<div class="col-sm-6">
-							<img class="img-fluid" src="/images/AdobeStock_residential.jpeg" alt="img" />
-							<h3 class="mt-10">Residential division</h3>
-							<p>You have big projects ahead ? Building or renovating, our residential division is there for you !</p>
-							<a href="#" class="btn btn-default">MORE INFO</a>
-						</div>
-
-						<div class="col-sm-6">
-							<img class="img-fluid" src="/images/AdobeStock_maintenance.jpeg" alt="img" />
-							<h3 class="mt-10">Maintenance services</h3>
-							<p>Our residential division offers professionnal maintenance services that will help keep your exising system in a good shape.</p>
-							<a href="#" class="btn btn-default">MORE INFO</a>
-						</div>
-
-					</div>
-
-				</div>
-			</section>
-			<!-- /Services -->
-
 			
 
-
-			<!-- Parallax En affaires ! -->
-			<section class="parallax parallax-1" style="background-image: url('/images/AdobeStock_3slides.jpeg');">
-				<div class="overlay dark-5"><!-- dark overlay [1 to 9 opacity] --></div>
-
-				<div class="container">
-
-					<div class="text-center">
-						<h2 class="fs-40 fw-300">Elevating your projects since 1976</h2>
-							<a class="btn btn-default btn-lg" href="#quote">GET A QUOTE <i class="fa fa-angle-right"></i></a> 
-						&nbsp; OR &nbsp; 
-							<a class="btn btn-default btn-lg" href="#contact">CONTACT US <i class="fa fa-angle-right"></i></a>
-					</div>
-
-				</div>
-			</section>
-			<!-- /Parallax -->
+			
 
 			<!-- CONTACT -->
 			<section id="contact">
@@ -487,7 +504,10 @@
 								h-550
 								h-600
 							-->
-							<div id="map2" class="h-600 grayscale"></div>
+							<div class="h-600 color">
+								<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2729.407874999146!2d-71.29402718255615!3d46.835660100000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cb897e960cb92d3%3A0xd1f81b6230e26c75!2s1165%20Bd%20Lebourgneuf%2C%20Qu%C3%A9bec%2C%20QC%20G2K%202C9!5e0!3m2!1sfr!2sca!4v1653657733198!5m2!1sfr!2sca" width="350" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+	
+							</div>
 
 							<hr />
 
@@ -504,7 +524,7 @@
 
 				</div>
 			</section>
-			<!-- /CONTACT -->
+			<!-- /CONTACT -->  
 
 
 
