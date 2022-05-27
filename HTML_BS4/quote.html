@@ -72,12 +72,13 @@
 				type: "hybrid",
 				inputFields: ["number-of-floors", "number-of-basements", "number-of-companies", "number-of-parking-spots", "maximum-occupancy", "business-hours"]
 			}
-		]
+		];
+
+// This is the first function - if commercial, nb elevetaors is given & nb elevators = required nb evaluated
 
 
-
-
-
+// This is the second function - if residential, lets divide nb of apartments / nb of floors (without nb of basements). The result = nb of apartements by floor.
+// We need 1 elevator for each 6 apartments. If apartments > 20 floors, we need 2 elevators. Two colonnes of elevators for each 20 apartements.
 
 
 
@@ -273,64 +274,73 @@
 					</header>
 
 
-
+	<!-- trouver le form action -->	
 					<form action="" method="post" id="quote">
+						<fieldset>
+							<input type="hidden" name="action" value="quote_send" />
+							<div>
+										
+									<label for="quote:building-type">Building type</label>
+									<select id="building-type" name="quote[building-type]">
+										<option value="">--- Select ---</option>
+										<option id="residential" value="residential">Residential</option>
+										<option id="commercial" value="commercial">Commercial</option>
+										<option id="corporate" value="corporate">Corporate</option>
+										<option id="hybird" value="hybrid">Hybrid</option> 	
+									</select>
+							</div>
 
-					<div>
-								
-							<label for="quote:building-type">Building type</label>
-							<select id="building-type" name="quote[building-type]">
-								<option value="">--- Select ---</option>
-								<option id="residential" value="residential">Residential</option>
-								<option id="commercial" value="commercial">Commercial</option>
-								<option id="corporate" value="corporate">Corporate</option>
-								<option id="hybird" value="hybrid">Hybrid</option> 	
-							</select>
-					</div>
+						
+							<div id="number-of-apartments">
+								<label>N. of Apartements *</label>
+								<input type="text" value="" name="" id="">
+							</div>
+							<div id="number-of-floors">
+								<label>N. of Floors *</label>
+								<input type="text" value="" name="" id="">
+							</div>
+							<div id="number-of-basements">
+								<label>N. of Basements *</label>
+								<input type="text" value="" name="" id="">
+							</div>
+							<div id="number-of-compagnies">
+								<label>N. of Companies *</label>
+								<input type="text" value="" name="" id="">
+							</div>
+							<div id="number-of-parking-spots">
+								<label>N. of Parking Spots *</label>
+								<input type="text" value="" name="" id="">
+							</div>
+							<div id="number-of-elevators">
+								<label>N. of Elevators</label>
+								<input type="text" value="" name="" id="" readonly="readonly">
+							</div>
+							<div id="number-of-corporations">
+								<label>N. of Corporations *</label>
+								<input type="text" value="" name="" id="">
+							</div>
+							<div id="maximum-occupancy">
+								<label>Maximum Occupancy *</label>
+								<input type="text" value="" name="" id="">
+							</div>
+							<div id="business-hours">
+								<label>Business Hours *</label>
+								<input type="text" value="" name="" id="">
+							</div>
+							
+						</fieldset>
 
-				
-					<div id="number-of-apartments">
-						<label>N. of Apartements *</label>
-						<input type="text" value="" name="" id="">
-					</div>
-					<div id="number-of-floors">
-						<label>N. of Floors *</label>
-						<input type="text" value="" name="" id="">
-					</div>
-					<div id="number-of-basements">
-						<label>N. of Basements *</label>
-						<input type="text" value="" name="" id="">
-					</div>
-					<div id="number-of-compagnies">
-						<label>N. of Companies *</label>
-						<input type="text" value="" name="" id="">
-					</div>
-					<div id="number-of-parking-spots">
-						<label>N. of Parking Spots *</label>
-						<input type="text" value="" name="" id="">
-					</div>
-					<div id="number-of-elevators">
-						<label>N. of Elevators *</label>
-						<input type="text" value="" name="" id="" readonly="readonly">
-					</div>
-					<div id="number-of-corporations">
-						<label>N. of Corporations *</label>
-						<input type="text" value="" name="" id="">
-					</div>
-					<div id="maximum-occupancy">
-						<label>Maximum Occupancy *</label>
-						<input type="text" value="" name="" id="">
-					</div>
-					<div id="business-hours">
-						<label>Business Hours *</label>
-						<input type="text" value="" name="" id="">
-					</div>
-					</form>
+						<div class="row">
+							<div class="col-md-12">
+								<button type="submit" class="btn btn-blue"><i class="fa fa-check"></i> Get your quote</button>
+							</div>
+						</div>
+							
+					</form>			
 
 				</div>
 
-			</div>
-			
+			</section>		
 			
 
 			
