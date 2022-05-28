@@ -71,30 +71,30 @@
 			{
 				type: "hybrid",
 				inputFields: ["number-of-floors", "number-of-basements", "number-of-companies", "number-of-parking-spots", "maximum-occupancy", "business-hours"]
-			}
+			},
+			{
+				productLineIDs: ["standard", "premium", "excelium"]
+			}	
 		];
 
+				
 // This is the first function - if commercial, nb elevetaors is given & nb elevators = required nb evaluated
 
 
 // This is the second function - if residential, lets divide nb of apartments / nb of floors (without nb of basements). The result = nb of apartements by floor.
-// We need 1 elevator for each 6 apartments. If apartments > 20 floors, we need 2 elevators. Two colonnes of elevators for each 20 apartements.
+// We need 1 elevator for each 6 apartments. If apartments > 20 floors, we need 2 elevators. Add 1 row of elevators for each 20 apartements.
 
 
+// This is the third function - if corporate or hydrid, we multiply nb max occupancy by nb of floors = nb occupancy total. The number of elevator = nb occupancy total / 1000.
+// Then we divide nb of floors (with the nb of basement) by 20 = nb of elevators columns required. Then we divide nb of elevators by nb of columns = average of elevators by columns.
+// Total nb of elevators = this average multiplied by nb of columns.
 
 
-
+//BUDGET CALCULATION AFTER THE NB OF ELEVATORS WAS FOUND
+// This is the fourth function - 
 
 
 	</script>
-
-
-
-
-
-
-
-
 
 
 	<body class="smoothscroll enable-animation">
@@ -335,14 +335,51 @@
 								<button type="submit" class="btn btn-blue"><i class="fa fa-check"></i> Get your quote</button>
 							</div>
 						</div>
-							
-					</form>			
 
-				</div>
+					</form>
+
+						<hr />
+
+						<!-- to create the radio button for the product line --> 
+						<!-- I'm gonna have to call the array of productLineIDs -->
+						<p>Select your product line</p>
+							<form action="/action_page.php">
+							<div>
+								<input type="radio" name="line" onclick="myFunction(this.value)" value="$7,565" id="standard">
+								<label for="standard">Standard</label>
+							</div>
+							<div>
+								<input type="radio" name="line" onclick="myFunction(this.value)" value="$12,345" id="premium">
+								<label for="premium">Premium</label>
+							</div>
+							<div>
+								<input type="radio" name="line" onclick="myFunction(this.value)" value="$15,400" id="excelium">
+								<label for="excelium">Excelium</label>
+							</div>
+						
+							Your choice is : <input type="text" id="result">			
+						
+							</form>
+					
+						<script>
+
+						function myFunction(line) {
+							document.getElementById("result").value = line;
+							
+						}
+						
+						
+						</script>
+						
 
 			</section>		
 			
+			
 
+
+
+
+			<hr class="m-0" /><!-- 1px line separator --> <!-- to add a line separator showing the end of the quote -->
 			
 
 			<!-- CONTACT -->
