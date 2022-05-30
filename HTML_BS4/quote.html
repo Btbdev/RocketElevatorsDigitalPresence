@@ -27,6 +27,11 @@
 		<!-- PAGE LEVEL SCRIPTS -->
 		<link href="assets/css/header-1.css" rel="stylesheet" type="text/css" />
 		<link href="assets/css/color_scheme/blue.css" rel="stylesheet" type="text/css" id="color_scheme" />
+		
+		<!-- TO INCLUDE A LINK TO MY JS FILE -->
+		<script src="assets/plugins/jquery/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="Javascript.js"></script>
+
 	</head>
 
 	<!--
@@ -51,97 +56,11 @@
 		data-background="assets/images/_smarty/boxed_background/1.jpg"
 	-->
 
-	<!-- Javascript section quote -->
-
-	<script type="text/javascript">
-
-		quoteFormElements: [
-			{
-				Type: "residential",
-				inputFields: ["number-of-apartments", "number-of-floors", "number-of-basements"]
-			},
-			{
-				type: "commercial",
-				inputFields: ["number-of-floors", "number-of-basements", "number-of-companies", "number-of-parking-spots", "number-of-elevators"]
-			},
-			{
-				type: "corporate",
-				inputFields: ["number-of-floors", "number-of-basements", "number-of-parking-spots", "number-of-corporations", "maximum-occupancy"]
-			},
-			{
-				type: "hybrid",
-				inputFields: ["number-of-floors", "number-of-basements", "number-of-companies", "number-of-parking-spots", "maximum-occupancy", "business-hours"]
-			},
-			{
-				productLineIDs: ["standard", "premium", "excelium"]
-			}	
-		];
-
-				
-// This is the first function - if commercial, nb elevetaors is given & nb elevators = required nb evaluated
-
-
-// This is the second function - if residential, lets divide nb of apartments / nb of floors (without nb of basements). The result = nb of apartements by floor.
-// We need 1 elevator for each 6 apartments. If apartments > 20 floors, we need 2 elevators. Add 1 row of elevators for each 20 apartements.
-
-
-// This is the third function - if corporate or hydrid, we multiply nb max occupancy by nb of floors = nb occupancy total. The number of elevator = nb occupancy total / 1000.
-// Then we divide nb of floors (with the nb of basement) by 20 = nb of elevators columns required. Then we divide nb of elevators by nb of columns = average of elevators by columns.
-// Total nb of elevators = this average multiplied by nb of columns.
-
-
-//BUDGET CALCULATION AFTER THE NB OF ELEVATORS WAS FOUND
-// This is the fourth function - 
-
-
-	</script>
-
+	
 
 	<body class="smoothscroll enable-animation">
 
-		<!-- SLIDE TOP -->
 		
-		<!-- to comment out this unneeded section
-		<div id="slidetop">
-
-			<div class="container">
-				
-				<div class="row">
-
-					<div class="col-md-4">
-						<h6><i class="icon-heart"></i> WHY SMARTY?</h6>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Ut enim massa, sodales tempor convallis et, iaculis ac massa. </p>
-					</div>
-
-					<div class="col-md-4">
-						<h6><i class="fa-facheck"></i> RECENTLY VISITED</h6>
-						<ul class="list-unstyled">
-							<li><a href="#"><i class="fa fa-angle-right"></i> Consectetur adipiscing elit amet</a></li>
-							<li><a href="#"><i class="fa fa-angle-right"></i> This is a very long text, very very very very very very very very very very very very </a></li>
-							<li><a href="#"><i class="fa fa-angle-right"></i> Lorem ipsum dolor sit amet</a></li>
-							<li><a href="#"><i class="fa fa-angle-right"></i> Dolor sit amet,consectetur adipiscing elit amet</a></li>
-							<li><a href="#"><i class="fa fa-angle-right"></i> Consectetur adipiscing elit amet,consectetur adipiscing elit</a></li>
-						</ul>
-					</div>
-
-					<div class="col-md-4">
-						<h6><i class="icon-envelope"></i> CONTACT INFO</h6>
-						<ul class="list-unstyled">
-							<li><b>Address:</b> PO Box 21132, Here Weare St, <br /> Melbourne, Vivas 2355 Australia</li>
-							<li><b>Phone:</b> 1-800-565-2390</li>
-							<li><b>Email:</b> <a href="mailto:support@yourname.com">support@yourname.com</a></li>
-						</ul>
-					</div>
-
-				</div>
-
-			</div>
-
-			<a class="slidetop-toggle" href="#"> </a>
-
-		</div>
-		-->
-		<!-- /SLIDE TOP -->
 
 
 		<!-- wrapper -->
@@ -274,103 +193,106 @@
 					</header>
 
 
-	<!-- trouver le form action -->	
-					<form action="" method="post" id="quote">
-						<fieldset>
-							<input type="hidden" name="action" value="quote_send" />
-							<div>
-										
-									<label for="quote:building-type">Building type</label>
-									<select id="building-type" name="quote[building-type]">
-										<option value="">--- Select ---</option>
-										<option id="residential" value="residential">Residential</option>
-										<option id="commercial" value="commercial">Commercial</option>
-										<option id="corporate" value="corporate">Corporate</option>
-										<option id="hybird" value="hybrid">Hybrid</option> 	
-									</select>
-							</div>
+			<!-- Radio Buttons for builng choice -->
+							
+							<h2>Type of building</h2>
+							<label for="residential">
+								<input type ="radio" id="residential" name="btype" value="residential">Residential</label>
+							<label for="commercial">
+								<input type ="radio" id="commercial" name="btype" value="commercial">Commercial</label>
+							<label for="corporate">
+								<input type ="radio" id="corporate" name="btype" value="corporate">Corporate</label>
+							<label for="hybrid">
+								<input type ="radio" id="hybrid" name="btype" value="hybrid">Hybrid</label>
+						<hr>
 
-						
+			<!-- End of Radio Buttons section -->
+
+
+			<!-- Fields to fill by user to generate quote -->
+
 							<div id="number-of-apartments">
 								<label>N. of Apartements *</label>
-								<input type="text" value="" name="" id="">
+								<input type="number" value="" name="number-of-apartments">
 							</div>
 							<div id="number-of-floors">
 								<label>N. of Floors *</label>
-								<input type="text" value="" name="" id="">
+								<input type="number" value="" name="number-of-floors">
 							</div>
 							<div id="number-of-basements">
 								<label>N. of Basements *</label>
-								<input type="text" value="" name="" id="">
+								<input type="number" value="" name="number-of-basements">
 							</div>
-							<div id="number-of-compagnies">
+							<div id="number-of-companies">
 								<label>N. of Companies *</label>
-								<input type="text" value="" name="" id="">
+								<input type="number" value="" name="number-of-compagnies">
 							</div>
 							<div id="number-of-parking-spots">
 								<label>N. of Parking Spots *</label>
-								<input type="text" value="" name="" id="">
+								<input type="number" value="" name="number-of-parking-spots">
 							</div>
 							<div id="number-of-elevators">
 								<label>N. of Elevators</label>
-								<input type="text" value="" name="" id="" readonly="readonly">
+								<input type="number" value="" name="number-of-elevators" readonly="readonly">
 							</div>
 							<div id="number-of-corporations">
 								<label>N. of Corporations *</label>
-								<input type="text" value="" name="" id="">
+								<input type="number" value="" name="number-of-corporations">
 							</div>
 							<div id="maximum-occupancy">
 								<label>Maximum Occupancy *</label>
-								<input type="text" value="" name="" id="">
+								<input type="number" value="" name="maximum-occupancy">
 							</div>
 							<div id="business-hours">
 								<label>Business Hours *</label>
-								<input type="text" value="" name="" id="">
+								<input type="number" value="" name="business-hours">
 							</div>
 							
-						</fieldset>
+					
 
-						<div class="row">
-							<div class="col-md-12">
-								<button type="submit" class="btn btn-blue"><i class="fa fa-check"></i> Get your quote</button>
-							</div>
+						<div id="choice" style="display: none">
+							Your building type :
+							<input type="text" id="txtchoice" />
 						</div>
 
-					</form>
-
+					
 						<hr />
 
 						<!-- to create the radio button for the product line --> 
 						<!-- I'm gonna have to call the array of productLineIDs -->
 						<p>Select your product line</p>
-							<form action="/action_page.php">
+							
 							<div>
-								<input type="radio" name="line" onclick="myFunction(this.value)" value="$7,565" id="standard">
+								<input type="radio" name="line" onclick="myFunction(this.value)" value="7565" id="standard">
 								<label for="standard">Standard</label>
 							</div>
 							<div>
-								<input type="radio" name="line" onclick="myFunction(this.value)" value="$12,345" id="premium">
+								<input type="radio" name="line" onclick="myFunction(this.value)" value="12345" id="premium">
 								<label for="premium">Premium</label>
 							</div>
 							<div>
-								<input type="radio" name="line" onclick="myFunction(this.value)" value="$15,400" id="excelium">
+								<input type="radio" name="line" onclick="myFunction(this.value)" value="15400" id="excelium">
 								<label for="excelium">Excelium</label>
 							</div>
 						
-							Your choice is : <input type="text" id="result">			
+							Your choice is : <input type="number" Intl.NumberFormat() id="result" readonly="readonly">			
 						
-							</form>
-					
-						<script>
-
-						function myFunction(line) {
-							document.getElementById("result").value = line;
 							
-						}
+					
 						
 						
+
+
+						<div id="installationFees"></div>
+
+						Your installation fees are : <input type="text" id="installationFees">
+
+						<script>
+							let x = myFunction(line);
+							
+						document.getElementById("line").innerHTML = line;	
+
 						</script>
-						
 
 			</section>		
 			
