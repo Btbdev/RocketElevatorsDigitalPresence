@@ -28,6 +28,7 @@
 		];
 
 
+// Function to have only the right fields for the choice made by user
 
 		$(function() {
 			$("input[name='btype']").click(function() {
@@ -80,14 +81,22 @@
 			});	
 		});
 		
-
-	
+// Function to call the monetary value of the elevator line choosen
+		
 		function myFunction(line) {
 			document.getElementById("result").value = line;
 			
 		}	
-
-
+		function myFunction2 () {
+		let elevators =	document.getElementById("#number-of-elevator").val();
+		console.log(elevators)
+		}
+ 
+// Function to call the value of the installation fees
+		let x = myFunction(line);
+				
+			document.getElementById("line").innerHTML = line;	
+		
        
 
 						

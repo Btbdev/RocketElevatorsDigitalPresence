@@ -213,23 +213,23 @@
 
 							<div id="number-of-apartments">
 								<label>N. of Apartements *</label>
-								<input type="number" value="" name="number-of-apartments">
+								<input type="number" value="" name="number-of-apartments" min="1">
 							</div>
 							<div id="number-of-floors">
 								<label>N. of Floors *</label>
-								<input type="number" value="" name="number-of-floors">
+								<input type="number" value="" name="number-of-floors" min="1">
 							</div>
 							<div id="number-of-basements">
 								<label>N. of Basements *</label>
-								<input type="number" value="" name="number-of-basements">
+								<input type="number" value="" name="number-of-basements" min="0">
 							</div>
 							<div id="number-of-companies">
 								<label>N. of Companies *</label>
-								<input type="number" value="" name="number-of-compagnies">
+								<input type="number" value="" name="number-of-compagnies" min="0">
 							</div>
 							<div id="number-of-parking-spots">
 								<label>N. of Parking Spots *</label>
-								<input type="number" value="" name="number-of-parking-spots">
+								<input type="number" value="" name="number-of-parking-spots" min="0">
 							</div>
 							<div id="number-of-elevators">
 								<label>N. of Elevators</label>
@@ -237,29 +237,24 @@
 							</div>
 							<div id="number-of-corporations">
 								<label>N. of Corporations *</label>
-								<input type="number" value="" name="number-of-corporations">
+								<input type="number" value="" name="number-of-corporations" min="0">
 							</div>
 							<div id="maximum-occupancy">
 								<label>Maximum Occupancy *</label>
-								<input type="number" value="" name="maximum-occupancy">
+								<input type="number" value="" name="maximum-occupancy" min="">
 							</div>
 							<div id="business-hours">
 								<label>Business Hours *</label>
-								<input type="number" value="" name="business-hours">
+								<input type="number" value="" name="business-hours" min="0" max="24">
 							</div>
 							
 					
 
-						<div id="choice" style="display: none">
-							Your building type :
-							<input type="text" id="txtchoice" />
-						</div>
-
-					
+											
 						<hr />
 
 						<!-- to create the radio button for the product line --> 
-						<!-- I'm gonna have to call the array of productLineIDs -->
+					
 						<p>Select your product line</p>
 							
 							<div>
@@ -275,7 +270,7 @@
 								<label for="excelium">Excelium</label>
 							</div>
 						
-							Your choice is : <input type="number" Intl.NumberFormat() id="result" readonly="readonly">			
+							Your choice is : <input type="number" id="result" readonly="readonly">			
 						
 							
 					
