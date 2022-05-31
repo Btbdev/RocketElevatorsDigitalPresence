@@ -213,51 +213,74 @@
 
 							<div id="number-of-apartments">
 								<label>N. of Apartements *</label>
-								<input type="number" value="" name="number-of-apartments" min="1">
+								<input type="number" name="number-of-apartments" min=1 id="nbapart">
 							</div>
 							<div id="number-of-floors">
 								<label>N. of Floors *</label>
-								<input type="number" value="" name="number-of-floors" min="1">
+								<input type="number" name="number-of-floors" min=1 id="nbfloor">
 							</div>
 							<div id="number-of-basements">
 								<label>N. of Basements *</label>
-								<input type="number" value="" name="number-of-basements" min="0">
+								<input type="number" name="number-of-basements" min=0 id="nbbase">
 							</div>
 							<div id="number-of-companies">
 								<label>N. of Companies *</label>
-								<input type="number" value="" name="number-of-compagnies" min="0">
+								<input type="number" name="number-of-compagnies" min=0 id="nbcomp">
 							</div>
 							<div id="number-of-parking-spots">
 								<label>N. of Parking Spots *</label>
-								<input type="number" value="" name="number-of-parking-spots" min="0">
+								<input type="number" name="number-of-parking-spots" min=0 id="nbspot">
 							</div>
 							<div id="number-of-elevators">
 								<label>N. of Elevators</label>
-								<input type="number" value="" name="number-of-elevators" readonly="readonly">
+								<input type="number" name="number-of-elevators" id="nbelev">
 							</div>
 							<div id="number-of-corporations">
 								<label>N. of Corporations *</label>
-								<input type="number" value="" name="number-of-corporations" min="0">
+								<input type="number" name="number-of-corporations" min=0 id="nbcorpo">
 							</div>
 							<div id="maximum-occupancy">
 								<label>Maximum Occupancy *</label>
-								<input type="number" value="" name="maximum-occupancy" min="">
+								<input type="number" name="maximum-occupancy" min=0 id="maxocc">
 							</div>
 							<div id="business-hours">
 								<label>Business Hours *</label>
-								<input type="number" value="" name="business-hours" min="0" max="24">
+								<input type="number" name="business-hours" min=0 max=24 id="busi">
 							</div>
 							
 					
-
-											
 						<hr />
+
+						<div id="elevator">
+							<label> Elevator amount </label>
+							<input type ="number" value="" name="elevator-amount" id="elevator-amount">
+						</div>
+						
+						<div id="unit-price">
+							<label> Elevator unit price </label>
+							<input type ="number" name="elevator-unit-price" id="elevator-unit-price">
+						</div>
+
+						<div id="elevator-total-price">
+							<label> Elevator total price </label>
+							<input type ="number" name="elevator-total-price" id="elevator-total-price">
+						</div>
+
+						<div id="installation-fees">
+							<label> Installation Fees </label>
+							<input type ="number" name="installation-fees" id="installation-fees">
+						</div>
+
+						<div id="final-price">
+							<label> Final price </label>
+							<input type ="number" name="efinal-price" id="final-price">
+						</div>
 
 						<!-- to create the radio button for the product line --> 
 					
 						<p>Select your product line</p>
 							
-							<div>
+							<div id="">
 								<input type="radio" name="line" onclick="myFunction(this.value)" value="7565" id="standard">
 								<label for="standard">Standard</label>
 							</div>
@@ -270,24 +293,19 @@
 								<label for="excelium">Excelium</label>
 							</div>
 						
-							Your choice is : <input type="number" id="result" readonly="readonly">			
+							Your cost by elevator is : <input type="number" name="cost" id="result" readonly="readonly">			
+						
+			
+						<hr />
+						
+
+
+						
+
 						
 							
-					
+
 						
-						
-
-
-						<div id="installationFees"></div>
-
-						Your installation fees are : <input type="text" id="installationFees">
-
-						<script>
-							let x = myFunction(line);
-							
-						document.getElementById("line").innerHTML = line;	
-
-						</script>
 
 			</section>		
 			

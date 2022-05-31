@@ -31,9 +31,18 @@
 // Function to have only the right fields for the choice made by user
 
 		$(function() {
+			
+			$("input").change(function() {
+				var numberOfApartments = $("#nbapart").val()
+				console.log("number-of-apartments is:", $("#nbapart").val());
+			$("#elevator-amount").val(numberOfApartments);
+				console.log("the number is:", $("#elevator-amount").val());
+				});
+
+
+
 			$("input[name='btype']").click(function() {
 				if ($("#residential").is(":checked")) {
-					
 					$("#number-of-apartments").show();
 					$("#number-of-floors").show();
 					$("#number-of-basements").show();
@@ -78,15 +87,65 @@
 					$("#business-hours").show();
 				}
 				
-			});	
-		});
+			});		
+
+			
+
+			});
+
+// function to calculate residential
+
+
+
+  //function output() {
+			//var nbapart = document.getElementById("nbapart").value;
+			//var nbfloor = document.getElementById("nbfloor").value;
+			//console.log(nbapart);
+			//console.log(nbfloor);
+			//document.getElementById("testcalcul").innerHTML = parseInt(nbapart) + parseInt(nbfloor);
+			//console.log(output);	
+		//}
+		
 		
 // Function to call the monetary value of the elevator line choosen
 		
-		function myFunction(line) {
+		
+
+function myFunction(line) {
 			document.getElementById("result").value = line;
 			
-		}	
+			}	
+
+	
+		
+
+	
+
+
+
+
+
+
+
+
+		$.fn.myFunction=function(line){
+			document.getElementById("result").value;
+		}
+
+
+
+		
+		$( "#result" )
+		.keyup(function() {
+		  var x = $( this ).val();
+		  $( "#transfer" ).text( value );
+		})
+		.keyup();
+
+
+
+
+
 		function myFunction2 () {
 		let elevators =	document.getElementById("#number-of-elevator").val();
 		console.log(elevators)
@@ -97,8 +156,7 @@
 				
 			document.getElementById("line").innerHTML = line;	
 		
-       
-
+//        	
 						
 
 
@@ -111,7 +169,7 @@
 
 
 // This is the second function - if residential, lets divide nb of apartments / nb of floors (without nb of basements). The result = nb of apartements by floor.
-// We need 1 elevator for each 6 apartments. If apartments > 20 floors, we need 2 elevators. Add 1 row of elevators for each 20 apartements.
+// We need 1 elevator for each 6 apartments. If apartments > 20 floors, we need 2 elevators. Add 1 shaft of elevators for each 20 apartements.
 
 
 // This is the third function - if corporate or hydrid, we multiply nb max occupancy by nb of floors = nb occupancy total. The number of elevator = nb occupancy total / 1000.
