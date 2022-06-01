@@ -28,6 +28,15 @@
 		];
 
 
+// function to test a math formula :)
+
+
+
+
+
+
+
+
 // Function to have only the right fields for the choice made by user
 
 		$(function() {
@@ -35,6 +44,11 @@
 			$("input").change(function() {
 				var numberOfApartments = $("#nbapart").val()
 				console.log("number-of-apartments is:", $("#nbapart").val());
+			$("input").change(function() {
+				var numberOfFloor = $("#nbfloor").val()
+				console.log("number-of-floors is:", $("#nbfloor").val());
+			})
+
 			$("#elevator-amount").val(numberOfApartments);
 				console.log("the number is:", $("#elevator-amount").val());
 				});
@@ -91,7 +105,7 @@
 					$("#business-hours").show();
 				}
 				
-			});		
+				
 
 			// function to call and store the value of elevator unit
 			$("input[name='line']").click(function() {
@@ -99,19 +113,18 @@
 				console.log("elevator unit price is:", $(this).val());	
 			$("#elevator-unit-price").val(elevatorUnitPrice);
 				console.log("the number is:", $(this).val());
-			});
+			$("#elevator-total-price").val(elevatorUnitPrice);
+				console.log("test:", $("#elevator-unit-price").val() * $("#elevator-amount").val());
 			
-		
 
 			});
+			});	
+			
+		});
 
 // function to calculate residential
 
-	// function to test a math formula :)
-	function calculate() {
-		var maths = $(numberOfApartements).val() * 5;
-		console.log(maths);
-	}
+
 
 
 
