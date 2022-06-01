@@ -30,7 +30,9 @@
 
 // function to test a math formula :)
 
-
+function residential() {
+	
+};
 
 
 
@@ -41,23 +43,65 @@
 
 		$(function() {
 			
+			// function to call and store the value of elevator unit
+			$("input[name='line']").click(function() {
+				var elevatorUnitPrice = $(this).val()
+				console.log("elevator unit price is:", $(this).val());	
+			$("#unit-price").val(elevatorUnitPrice);
+				console.log("the number is:", $(this).val());
+			$("#total-price").val($("#unit-price").val() * $("#e-amount").val());
+				console.log("Elevator total price is :", $("#total-price").val());
+				
+			var totalPrice = $("#total-price").val($("#unit-price").val() * $("#e-amount").val());
+			console.log("The total price is:", totalPrice);
+				
+
+			
+			});
+
+
 			$("input").change(function() {
 				var numberOfApartments = $("#nbapart").val()
 				console.log("number-of-apartments is:", $("#nbapart").val());
-			$("input").change(function() {
+
+			//$("input").change(function() {
 				var numberOfFloor = $("#nbfloor").val()
 				console.log("number-of-floors is:", $("#nbfloor").val());
-			})
 
-			$("#elevator-amount").val(numberOfApartments);
-				console.log("the number is:", $("#elevator-amount").val());
-				});
+			//$("#installation-fees").val(numberOfFloor);	
+				//console.log("the nb of floors is:", $("#installation-fees").val());
 
+			
+
+			//});
+				var nbelevatorColumn = numberOfFloor;
+				console.log("nbelevatorColum is:", nbelevatorColumn)
+				
+				var nbaparts = numberOfApartments;
+				console.log("Eureka:", nbaparts)
+
+				var calcul = nbaparts / nbelevatorColumn;
+				console.log("Eureka2:", calcul)
+
+
+				$("#e-amount").val(nbaparts / nbelevatorColumn);
+				console.log("Elevator amount needed", calcul);
+
+				
+				$("#total-price").val(calcul * elevatorUnitPrice);
+				console.log("Mon résultat est:", )
+
+				var calculfinal = calcul * elevatorUnitPrice;
+				console.log("Mon résultat est:", calculfinal);
+
+
+
+
+
+				
+			});
 		
-
-
-
-						
+				
 
 			$("input[name='btype']").click(function() {
 				if ($("#residential").is(":checked")) {
@@ -107,41 +151,22 @@
 				
 				
 
-			// function to call and store the value of elevator unit
-			$("input[name='line']").click(function() {
-				var elevatorUnitPrice = $(this).val()
-				console.log("elevator unit price is:", $(this).val());	
-			$("#elevator-unit-price").val(elevatorUnitPrice);
-				console.log("the number is:", $(this).val());
-			$("#elevator-total-price").val(elevatorUnitPrice);
-				console.log("test:", $("#elevator-unit-price").val() * $("#elevator-amount").val());
-			
+					
 
-			});
 			});	
 			
 		});
 
-// function to calculate residential
+// Functions to make some calculations
 
 
-
-
-
-
-  //function output() {
-			//var nbapart = document.getElementById("nbapart").value;
-			//var nbfloor = document.getElementById("nbfloor").value;
-			//console.log(nbapart);
-			//console.log(nbfloor);
-			//document.getElementById("testcalcul").innerHTML = parseInt(nbapart) + parseInt(nbfloor);
-			//console.log(output);	
-		//}
 		
-		
-// Function to call the monetary value of the elevator line choosen
-		
-		
+// function to get the value of the choosen line product
+
+function instFees() {
+	var x = $("#nbfloor").val();
+	console.log("test de variable global:", $("#nbfloor").val());
+};
 
 function myFunction(line) {
 			document.getElementById("result").value = line;
@@ -151,11 +176,10 @@ function myFunction(line) {
 			$(function() {
 			$("#productline").on('click', function() {
 				var elevatorUnitPrice = $("#result").val()
-				console.log("elevator unit price is:", $("#result").val());	
+				console.log("teh elevator unit price is:", $("#result").val());	
 			});
 		});
 		
-
 	
 
 
@@ -163,39 +187,7 @@ function myFunction(line) {
 
 
 
-
-
-		
-		$( "#result" )
-		.keyup(function() {
-		  var x = $( this ).val();
-		  $( "#transfer" ).text( value );
-		})
-		.keyup();
-
-
-
-
-
-		function myFunction2 () {
-		let elevators =	document.getElementById("#number-of-elevator").val();
-		console.log(elevators)
-		}
- 
-// Function to call the value of the installation fees
-		let x = myFunction(line);
-				
-			document.getElementById("line").innerHTML = line;	
-		
-//        	
-						
-
-
-
-
-
-
-				
+			
 // This is the first function - if commercial, nb elevetaors is given & nb elevators = required nb evaluated
 
 
