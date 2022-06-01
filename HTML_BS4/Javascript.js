@@ -39,7 +39,11 @@
 				console.log("the number is:", $("#elevator-amount").val());
 				});
 
+		
 
+
+
+						
 
 			$("input[name='btype']").click(function() {
 				if ($("#residential").is(":checked")) {
@@ -89,11 +93,26 @@
 				
 			});		
 
+			// function to call and store the value of elevator unit
+			$("input[name='line']").click(function() {
+				var elevatorUnitPrice = $(this).val()
+				console.log("elevator unit price is:", $(this).val());	
+			$("#elevator-unit-price").val(elevatorUnitPrice);
+				console.log("the number is:", $(this).val());
+			});
 			
+		
 
 			});
 
 // function to calculate residential
+
+	// function to test a math formula :)
+	function calculate() {
+		var maths = $(numberOfApartements).val() * 5;
+		console.log(maths);
+	}
+
 
 
 
@@ -114,9 +133,14 @@
 function myFunction(line) {
 			document.getElementById("result").value = line;
 			
-			}	
+			}
 
-	
+			$(function() {
+			$("#productline").on('click', function() {
+				var elevatorUnitPrice = $("#result").val()
+				console.log("elevator unit price is:", $("#result").val());	
+			});
+		});
 		
 
 	
@@ -125,12 +149,6 @@ function myFunction(line) {
 
 
 
-
-
-
-		$.fn.myFunction=function(line){
-			document.getElementById("result").value;
-		}
 
 
 
