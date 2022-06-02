@@ -70,62 +70,61 @@
 					$("#total-price").val($("#unit-price").val() * $("#e-amount").val());
 						console.log("Elevator total price is :", $("#total-price").val());
 				
-// to get the inst. fees automatically
+					// to get the inst. fees automatically
 
-$()
-	Fees = $("#result").val();
-	console.log("les fees sont ", + Fees) ;
-	
-	//document.getElementById("result").value;
-	
-	console.log("attention ! installation fees are :", Fees);
-	totalFees = $("#total-price").val($("#unit-price").val() * $("#e-amount").val()) * Fees
-	console.log("Mathieu", + totalFees);
-	$("#inst-fees").val(totalFees * Fees );
-	console.log("Elevator amount needed", calcul);
+					
+						Fees = $("#result").val();
+						console.log("les fees sont ", + Fees) ;
+						
+						//document.getElementById("result").value;
+						
+						//console.log("attention ! installation fees are :", Fees);
+						//totalFees = $("#total-price").val($("#unit-price").val() * $("#e-amount").val()) * Fees
+						//console.log("Mathieu", + totalFees);
+						//$("#inst-fees").val(totalFees * Fees );
+						//console.log("Elevator amount needed", calcul);
 
-})
-
-
-$("input").change(function() {
-	numberOfApartments = $("#nbapart").val()
-	console.log("number-of-apartments is:", $("#nbapart").val());
-
-	var numberOfFloor = $("#nbfloor").val()
-	console.log("number-of-floors is:", $("#nbfloor").val());
-
-	var nbelevatorColumn = numberOfFloor;
-	//console.log("nbelevatorColum is:", nbelevatorColumn)
-	
-	var nbaparts = numberOfApartments;
-	//console.log("Eureka:", nbaparts)
-
-	calcul = nbaparts / nbelevatorColumn;
-	console.log("Eureka2:", calcul)
-
-// operation to find the nb of
-	$("#e-amount").val(nbaparts / nbelevatorColumn);
-	console.log("Elevator amount needed", calcul);
-
-	
-	$("#total-price").val(calcul * elevatorUnitPrice);
-	console.log("Mon résultat est:", + elevatorUnitPrice);
-
-	calculfinal = calcul * elevatorUnitPrice;
-	console.log("Mon résultat est:", calculfinal);
-
-	tPrice = $("#unit-price").val() * $("#e-amount").val() * Fees;
-	console.log("The total price is:", tPrice);
-
-	$("#inst-fees").val(tPrice);
-
-	$("#final").val(calculfinal + tPrice);
+					})
 
 
-})
-//END OF RESIDENTIAL
+						$("input").change(function() {
+							numberOfApartments = $("#nbapart").val()
+							console.log("number-of-apartments is:", $("#nbapart").val());
+
+							var numberOfFloor = $("#nbfloor").val()
+							console.log("number-of-floors is:", $("#nbfloor").val());
+
+							var nbelevatorColumn = numberOfFloor;
+							//console.log("nbelevatorColum is:", nbelevatorColumn)
+							
+							var nbaparts = numberOfApartments;
+							//console.log("Eureka:", nbaparts)
+
+							calcul = nbaparts / nbelevatorColumn;
+							console.log("Eureka2:", calcul)
+
+						// operation to find the nb of
+							$("#e-amount").val(nbaparts / nbelevatorColumn);
+							console.log("Elevator amount needed", calcul);
+
+							
+							$("#total-price").val(calcul * elevatorUnitPrice);
+							console.log("Mon résultat est:", + elevatorUnitPrice);
+
+							calculfinal = calcul * elevatorUnitPrice;
+							console.log("Mon résultat est:", calculfinal);
+
+							tPrice = $("#unit-price").val() * $("#e-amount").val() * Fees;
+							console.log("The total price is:", tPrice);
+
+							$("#inst-fees").val(tPrice);
+
+							$("#final").val(calculfinal + tPrice);
+
+					})
+
 				}	
-
+//END OF RESIDENTIAL
 
 
 				if ($("#commercial").is(":checked")) {
@@ -142,23 +141,53 @@ $("input").change(function() {
 					// function to give the price of the product line choosen by user
 
 					$("input[name='line']").click(function() {
-						var elevatorUnitPrice = $(this).val()
+						elevatorUnitPrice = $(this).val()
 						console.log("elevator unit price is:", $(this).val());	
 					$("#unit-price").val(elevatorUnitPrice);
 						console.log("the number is:", $(this).val());
 					$("#total-price").val($("#unit-price").val() * $("#e-amount").val());
 						console.log("Elevator total price is :", $("#total-price").val());
-					//});
+					
+					// to get the inst. fees automatically
 
+					
+					Fees = $("#result").val();
+					console.log("les fees sont ", + Fees) ;
+						
+					//document.getElementById("result").value;
+						
+					// console.log("attention ! installation fees are :", Fees);
+					//totalFees = $("#total-price").val($("#unit-price").val() * $("#e-amount").val()) * Fees
+					//console.log("Mathieu", + totalFees);
+					//$("#inst-fees").val(totalFees * Fees );
+					//console.log("Elevator amount needed", calcul);
+
+					})
+					
+					
 					$("input").change(function() {
 						numberOfCages = $("#nbelev").val()
 						console.log("number-of-cages is", numberOfCages);
-						var nbCages = numberOfCages;
-						console.log("Eureka:", nbCages)
-						$("#e-amount").val(nbCages);
-						console.log("Elevator amount needed", nbCages);
+						//var nbCages = numberOfCages;
+						//console.log("Eureka:", nbCages)
+						$("#e-amount").val(numberOfCages);
+						console.log("Elevator amount needed", numberOfCages);
+
+						$("#total-price").val(numberOfCages * elevatorUnitPrice);
+						console.log("Mon résultat est:", + elevatorUnitPrice);
+
+						calculfinal = (numberOfCages * elevatorUnitPrice);
+						console.log("Mon résultat est:", calculfinal);
+
+						tPrice = $("#unit-price").val() * $("#e-amount").val() * Fees;
+						console.log("Installation price:", tPrice);
+
+						$("#inst-fees").val(tPrice);
+
+						$("#final").val(calculfinal + tPrice);	
+
 					})
-				})
+				
 
 
 
