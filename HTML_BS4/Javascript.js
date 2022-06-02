@@ -1,119 +1,53 @@
 
     
 
-		quoteFormElements: [
-			{
-				Type: "residential",
-				inputFields: ["number-of-apartments", "number-of-floors", "number-of-basements"]
-			},
-			{
-				type: "commercial",
-				inputFields: ["number-of-floors", "number-of-basements", "number-of-companies", "number-of-parking-spots", "number-of-elevators"]
-			},
-			{
-				type: "corporate",
-				inputFields: ["number-of-floors", "number-of-basements", "number-of-parking-spots", "number-of-corporations", "maximum-occupancy"]
-			},
-			{
-				type: "hybrid",
-				inputFields: ["number-of-floors", "number-of-basements", "number-of-companies", "number-of-parking-spots", "maximum-occupancy", "business-hours"]
-			},
-			{
-				productLineIDs: ["standard", "premium", "excelium"]
-			},
-			{
-				resultsInputsIDs: ["elevator-amount", "elevator-unit-price", "elevator-total-price", "installation-fees", "final-price"]	
-			}
+	// //	quoteFormElements: [
+	// 		{
+	// 			Type: "residential",
+	// 			inputFields: ["number-of-apartments", "number-of-floors", "number-of-basements"]
+	// 		},
+	// 		{
+	// 			type: "commercial",
+	// 			inputFields: ["number-of-floors", "number-of-basements", "number-of-companies", "number-of-parking-spots", "number-of-elevators"]
+	// 		},
+	// 		{
+	// 			type: "corporate",
+	// 			inputFields: ["number-of-floors", "number-of-basements", "number-of-parking-spots", "number-of-corporations", "maximum-occupancy"]
+	// 		},
+	// 		{
+	// 			type: "hybrid",
+	// 			inputFields: ["number-of-floors", "number-of-basements", "number-of-companies", "number-of-parking-spots", "maximum-occupancy", "business-hours"]
+	// 		},
+	// 		{
+	// 			productLineIDs: ["standard", "premium", "excelium"]
+	// 		},
+	// 		{
+	// 			resultsInputsIDs: ["elevator-amount", "elevator-unit-price", "elevator-total-price", "installation-fees", "final-price"]	
+	// 		}
 
-		];
-
-
-// function to test a math formula :)
-
-function residential() {
-	
-};
+	// 	];
 
 
 
-
-
-
-// Function to have only the right fields for the choice made by user
-
+// function to choose the building type by user
 		$(function() {
-			
-			// function to call and store the value of elevator unit
-			$("input[name='line']").click(function() {
-				var elevatorUnitPrice = $(this).val()
-				console.log("elevator unit price is:", $(this).val());	
-			$("#unit-price").val(elevatorUnitPrice);
-				console.log("the number is:", $(this).val());
-			$("#total-price").val($("#unit-price").val() * $("#e-amount").val());
-				console.log("Elevator total price is :", $("#total-price").val());
-					
-
-			
-			
-				
-				// to get the inst. fees automatically
-			
-
-
-				var Fees = document.getElementById("result").value;
-				
-				console.log("attention ! installation fees are :", Fees);
-				var totalFees = $("#total-price").val($("#unit-price").val() * $("#e-amount").val()) * Fees
-				console.log("Mathieu", + totalFees);
-				
-				$("#inst-fees").val(totalFees * Fees );
-				console.log("Elevator amount needed", calcul);
-			
-			});
+			var numberOfApartments = 0;
+			var numerOfBasements = 0;
+			var numberOfCompanies = 0;
+			var numberOfCorporations = 0;
+			var numberOfElevators = 0;
+			var numberOfFloors = 0;
+			var numberOfParkingSpots = 0;
+			var maximumOccupancy = 0;
+			var businessHours = 0;
+			var totalNumberOfOccupants = 0;
+			var numberOfCages = 0;
+			var Fees = 0;
+			var elevatorUnitPrice = 0;
+			var calcul = 0;	
+			var totalFees = 0;
 
 
-			$("input").change(function() {
-				var numberOfApartments = $("#nbapart").val()
-				console.log("number-of-apartments is:", $("#nbapart").val());
-
-			
-				var numberOfFloor = $("#nbfloor").val()
-				console.log("number-of-floors is:", $("#nbfloor").val());
-
-			
-
-			
-
-			//});
-				var nbelevatorColumn = numberOfFloor;
-				console.log("nbelevatorColum is:", nbelevatorColumn)
-				
-				var nbaparts = numberOfApartments;
-				console.log("Eureka:", nbaparts)
-
-				var calcul = nbaparts / nbelevatorColumn;
-				console.log("Eureka2:", calcul)
-
-
-				$("#e-amount").val(nbaparts / nbelevatorColumn);
-				console.log("Elevator amount needed", calcul);
-
-				
-				$("#total-price").val(calcul * elevatorUnitPrice);
-				console.log("Mon résultat est:", calcul)
-
-				var calculfinal = calcul * elevatorUnitPrice;
-				console.log("Mon résultat est:", calculfinal);
-
-				var tPrice = $("#total-price").val($("#unit-price").val() * $("#e-amount").val());
-				console.log("The total price is:", tPrice);
-
-
-
-				
-			});
-		
-				
 
 			$("input[name='btype']").click(function() {
 				if ($("#residential").is(":checked")) {
@@ -127,7 +61,67 @@ function residential() {
 					$("#maximum-occupancy").hide();
 					$("#business-hours").hide();
 
+					// function to give the price of the product line choosen by user
+					$("input[name='line']").click(function() {
+						elevatorUnitPrice = $(this).val()
+						console.log("elevator unit price is:", $(this).val());	
+					$("#unit-price").val(elevatorUnitPrice);
+						console.log("the number is:", $(this).val());
+					$("#total-price").val($("#unit-price").val() * $("#e-amount").val());
+						console.log("Elevator total price is :", $("#total-price").val());
+				
+// to get the inst. fees automatically
 
+$()
+	Fees = $("#result").val();
+	console.log("les fees sont ", + Fees) ;
+	
+	//document.getElementById("result").value;
+	
+	console.log("attention ! installation fees are :", Fees);
+	totalFees = $("#total-price").val($("#unit-price").val() * $("#e-amount").val()) * Fees
+	console.log("Mathieu", + totalFees);
+	$("#inst-fees").val(totalFees * Fees );
+	console.log("Elevator amount needed", calcul);
+
+})
+
+
+$("input").change(function() {
+	numberOfApartments = $("#nbapart").val()
+	console.log("number-of-apartments is:", $("#nbapart").val());
+
+
+	var numberOfFloor = $("#nbfloor").val()
+	console.log("number-of-floors is:", $("#nbfloor").val());
+
+
+	var nbelevatorColumn = numberOfFloor;
+	console.log("nbelevatorColum is:", nbelevatorColumn)
+	
+	var nbaparts = numberOfApartments;
+	console.log("Eureka:", nbaparts)
+
+	calcul = nbaparts / nbelevatorColumn;
+	console.log("Eureka2:", calcul)
+
+
+	$("#e-amount").val(nbaparts / nbelevatorColumn);
+	console.log("Elevator amount needed", calcul);
+
+	
+	$("#total-price").val(calcul * elevatorUnitPrice);
+	console.log("Mon résultat est:", + elevatorUnitPrice);
+
+	var calculfinal = calcul * elevatorUnitPrice;
+	console.log("Mon résultat est:", calculfinal);
+
+	var tPrice = $("#total-price").val($("#unit-price").val() * $("#e-amount").val());
+	console.log("The total price is:", tPrice);
+
+
+})
+//END OF RESIDENTIAL
 				}	
 
 
@@ -143,9 +137,30 @@ function residential() {
 					$("#maximum-occupancy").hide();
 					$("#business-hours").hide();
 
-					
+					// function to give the price of the product line choosen by user
+
+					$("input[name='line']").click(function() {
+						var elevatorUnitPrice = $(this).val()
+						console.log("elevator unit price is:", $(this).val());	
+					$("#unit-price").val(elevatorUnitPrice);
+						console.log("the number is:", $(this).val());
+					$("#total-price").val($("#unit-price").val() * $("#e-amount").val());
+						console.log("Elevator total price is :", $("#total-price").val());
+					//});
+
+					$("input").change(function() {
+						var numberOfCages = $("#nbelev").val()
+						console.log("number-of-cages is", $("#nbelev").val());
+						var nbCages = numberOfCages;
+						console.log("Eureka:", nbCages)
+						$("#e-amount").val(nbCages);
+						console.log("Elevator amount needed", nbCages);
+					})
+				})
 
 
+
+// END OF COMMERCIAL					
 				}
 				if ($("#corporate").is(":checked")) {
 					$("#number-of-apartments").hide();
@@ -157,6 +172,8 @@ function residential() {
 					$("#number-of-corporations").show();
 					$("#maximum-occupancy").show();
 					$("#business-hours").hide();
+
+// END OF CORPORATE				
 				}
 				if ($("#hybrid").is(":checked")) {
 					$("#number-of-apartments").hide();
@@ -168,12 +185,11 @@ function residential() {
 					$("#number-of-corporations").hide();
 					$("#maximum-occupancy").show();
 					$("#business-hours").show();
+
+// ENND OF HYBRID					
 				}
 				
 				
-
-					
-
 			});	
 			
 		});
@@ -199,7 +215,6 @@ function myFunction(line) {
 			console.log("enfin ? :", + line.id);
 			};
 
-			
 
 			//$("input[name='productline']").click(function () {
 			//	if ($("#standard").is(".checked")) {
