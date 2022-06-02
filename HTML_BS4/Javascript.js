@@ -51,11 +51,23 @@ function residential() {
 				console.log("the number is:", $(this).val());
 			$("#total-price").val($("#unit-price").val() * $("#e-amount").val());
 				console.log("Elevator total price is :", $("#total-price").val());
-				
-			var totalPrice = $("#total-price").val($("#unit-price").val() * $("#e-amount").val());
-			console.log("The total price is:", totalPrice);
-				
+					
 
+			
+			
+				
+				// to get the inst. fees automatically
+			
+
+
+				var Fees = document.getElementById("result").value;
+				
+				console.log("attention ! installation fees are :", Fees);
+				var totalFees = $("#total-price").val($("#unit-price").val() * $("#e-amount").val()) * Fees
+				console.log("Mathieu", + totalFees);
+				
+				$("#inst-fees").val(totalFees * Fees );
+				console.log("Elevator amount needed", calcul);
 			
 			});
 
@@ -64,12 +76,11 @@ function residential() {
 				var numberOfApartments = $("#nbapart").val()
 				console.log("number-of-apartments is:", $("#nbapart").val());
 
-			//$("input").change(function() {
+			
 				var numberOfFloor = $("#nbfloor").val()
 				console.log("number-of-floors is:", $("#nbfloor").val());
 
-			//$("#installation-fees").val(numberOfFloor);	
-				//console.log("the nb of floors is:", $("#installation-fees").val());
+			
 
 			
 
@@ -89,12 +100,13 @@ function residential() {
 
 				
 				$("#total-price").val(calcul * elevatorUnitPrice);
-				console.log("Mon résultat est:", )
+				console.log("Mon résultat est:", calcul)
 
 				var calculfinal = calcul * elevatorUnitPrice;
 				console.log("Mon résultat est:", calculfinal);
 
-
+				var tPrice = $("#total-price").val($("#unit-price").val() * $("#e-amount").val());
+				console.log("The total price is:", tPrice);
 
 
 
@@ -114,7 +126,12 @@ function residential() {
 					$("#number-of-corporations").hide();
 					$("#maximum-occupancy").hide();
 					$("#business-hours").hide();
+
+
 				}	
+
+
+
 				if ($("#commercial").is(":checked")) {
 					$("#number-of-apartments").hide();
 					$("#number-of-floors").show();
@@ -125,6 +142,10 @@ function residential() {
 					$("#number-of-corporations").hide();
 					$("#maximum-occupancy").hide();
 					$("#business-hours").hide();
+
+					
+
+
 				}
 				if ($("#corporate").is(":checked")) {
 					$("#number-of-apartments").hide();
@@ -169,16 +190,26 @@ function instFees() {
 };
 
 function myFunction(line) {
-			document.getElementById("result").value = line;
-			
-			}
+			document.getElementById("result").value = line.value;
+			console.log("Test du matin:" + line.id);
+			};
 
-			$(function() {
-			$("#productline").on('click', function() {
-				var elevatorUnitPrice = $("#result").val()
-				console.log("teh elevator unit price is:", $("#result").val());	
-			});
-		});
+function myFunction(line) {
+			document.getElementById("result").value = line.id;
+			console.log("enfin ? :", + line.id);
+			};
+
+			
+
+			//$("input[name='productline']").click(function () {
+			//	if ($("#standard").is(".checked")) {
+			//		$(this).val();
+			//		var Fees = 0.1;
+			//		var totalFees = Fees * $("#total-price").val($("#unit-price").val() * $("#e-amount").val());
+			//		$("#inst-fees").val(totalFees);
+			//		console.log("Mathieu:", totalFees);
+			//	}
+		//	});			
 		
 	
 
