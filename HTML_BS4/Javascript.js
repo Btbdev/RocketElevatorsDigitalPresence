@@ -1,35 +1,7 @@
 
     
-
-	// //	quoteFormElements: [
-	// 		{
-	// 			Type: "residential",
-	// 			inputFields: ["number-of-apartments", "number-of-floors", "number-of-basements"]
-	// 		},
-	// 		{
-	// 			type: "commercial",
-	// 			inputFields: ["number-of-floors", "number-of-basements", "number-of-companies", "number-of-parking-spots", "number-of-elevators"]
-	// 		},
-	// 		{
-	// 			type: "corporate",
-	// 			inputFields: ["number-of-floors", "number-of-basements", "number-of-parking-spots", "number-of-corporations", "maximum-occupancy"]
-	// 		},
-	// 		{
-	// 			type: "hybrid",
-	// 			inputFields: ["number-of-floors", "number-of-basements", "number-of-companies", "number-of-parking-spots", "maximum-occupancy", "business-hours"]
-	// 		},
-	// 		{
-	// 			productLineIDs: ["standard", "premium", "excelium"]
-	// 		},
-	// 		{
-	// 			resultsInputsIDs: ["elevator-amount", "elevator-unit-price", "elevator-total-price", "installation-fees", "final-price"]	
-	// 		}
-
-	// 	];
-
-
-
 // function to choose the building type by user
+// declaration of many variables that are used in JQuery
 		$(function() {
 			var numberOfApartments = 0;
 			var numerOfBasements = 0;
@@ -95,14 +67,31 @@
 							numberOfApartments = $("#nbapart").val()
 							console.log("number-of-apartments is:", $("#nbapart").val());
 
-							var numberOfFloor = $("#nbfloor").val()
+							numberOfFloors = $("#nbfloor").val()
 							console.log("number-of-floors is:", $("#nbfloor").val());
-
-							var nbelevatorColumn = numberOfFloor;
+							avgOfApartByFloor = numberOfApartments / numberOfFloors
+							console.log("The average is:" + avgOfApartByFloor);
+							
+							
+							//var nbelevatorColumn = numberOfFloor;
 							//console.log("nbelevatorColum is:", nbelevatorColumn)
 							
-							var nbaparts = numberOfApartments;
+							//var nbaparts = numberOfApartments;
 							//console.log("Eureka:", nbaparts)
+							numberOfShafts = numberOfApartments / 6
+							console.log("avg:" + numberOfShafts)
+
+//soritr la variable x et dire : si la valeur x > 20
+							// rules to follow 1 shaft for 6 apartements
+							// if stories > 20 add 1 more shaft
+							// for each 20 stories, add a new column +1
+							
+							
+							if (numberOfFloors > 20) {
+									numberOfShafts
+							}
+							
+							
 
 							calcul = nbaparts / nbelevatorColumn;
 							console.log("Eureka2:", calcul)
@@ -154,18 +143,10 @@
 					
 					// to get the inst. fees automatically
 
-					
 					Fees = $("#result").val();
 					console.log("les fees sont ", + Fees) ;
 						
-					//document.getElementById("result").value;
-						
-					// console.log("attention ! installation fees are :", Fees);
-					//totalFees = $("#total-price").val($("#unit-price").val() * $("#e-amount").val()) * Fees
-					//console.log("Mathieu", + totalFees);
-					//$("#inst-fees").val(totalFees * Fees );
-					//console.log("Elevator amount needed", calcul);
-
+					
 					})
 					
 					
