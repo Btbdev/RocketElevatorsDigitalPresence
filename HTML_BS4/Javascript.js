@@ -259,9 +259,6 @@
 
 					})
 
-
-
-
 				}
 // END OF CORPORATE				
 				
@@ -276,13 +273,62 @@
 					$("#maximum-occupancy").show();
 					$("#business-hours").show();
 
+					// function to give the price of the product line choosen by user
 
-
+					$("input[name='line']").click(function() {
+						elevatorUnitPrice = $(this).val()
+						console.log("elevator unit price is:", $(this).val());	
+					$("#unit-price").val(elevatorUnitPrice);
+						console.log("the number is:", $(this).val());
+					$("#total-price").val($("#unit-price").val() * $("#e-amount").val());
+						console.log("Elevator total price is :", $("#total-price").val());
+					
+					// to get the inst. fees automatically
 
 					
-// ENND OF HYBRID					
-				}
-				
+					Fees = $("#result").val();
+					console.log("les fees sont ", + Fees);
+
+					})
+
+					$("input").change(function() {
+						totalFloors = (+$("#nbfloor").val() + +$("#nbbase").val())
+						console.log(totalFloors);
+						maximumOccupancy = $("#maxocc").val()
+						totalMaxOcc = totalFloors * maximumOccupancy
+						console.log("The max occ is :", + totalMaxOcc);
+						numberOfElevators = totalMaxOcc / 1000;
+						console.log("nbelev is:", numberOfElevators);
+						numberOfShafts = totalFloors / 20;
+						console.log("nbshafts :", numberOfShafts);
+						//divide nb elevators by nb of shafts
+						avgElevatorsByColumn = numberOfElevators / numberOfShafts
+						console.log("The avg is :" + avgElevatorsByColumn);
+						numberOfCages = Math.ceil(avgElevatorsByColumn * numberOfShafts)
+						console.log("number-of-cages is", numberOfCages);
+						
+						$("#e-amount").val(numberOfCages);
+						console.log("Elevator amount needed", numberOfCages);
+
+						$("#total-price").val(numberOfCages * elevatorUnitPrice);
+						console.log("Mon résultat est:", + elevatorUnitPrice);
+
+						calculfinal = (numberOfCages * elevatorUnitPrice);
+						console.log("Mon résultat est:", calculfinal);
+
+						tPrice = $("#unit-price").val() * $("#e-amount").val() * Fees;
+						console.log("Installation price:", tPrice);
+
+						$("#inst-fees").val(tPrice);
+
+						$("#final").val(calculfinal + tPrice);	
+
+
+					})
+
+
+				}	
+// END OF HYBRID					
 				
 			});	
 			
