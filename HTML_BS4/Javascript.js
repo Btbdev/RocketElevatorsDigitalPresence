@@ -46,7 +46,7 @@
 			var elevatorUnitPrice = 0;
 			var calcul = 0;	
 			var totalFees = 0;
-
+			var tPrice = 0;
 
 
 			$("input[name='btype']").click(function() {
@@ -91,21 +91,19 @@ $("input").change(function() {
 	numberOfApartments = $("#nbapart").val()
 	console.log("number-of-apartments is:", $("#nbapart").val());
 
-
 	var numberOfFloor = $("#nbfloor").val()
 	console.log("number-of-floors is:", $("#nbfloor").val());
 
-
 	var nbelevatorColumn = numberOfFloor;
-	console.log("nbelevatorColum is:", nbelevatorColumn)
+	//console.log("nbelevatorColum is:", nbelevatorColumn)
 	
 	var nbaparts = numberOfApartments;
-	console.log("Eureka:", nbaparts)
+	//console.log("Eureka:", nbaparts)
 
 	calcul = nbaparts / nbelevatorColumn;
 	console.log("Eureka2:", calcul)
 
-
+// operation to find the nb of
 	$("#e-amount").val(nbaparts / nbelevatorColumn);
 	console.log("Elevator amount needed", calcul);
 
@@ -113,11 +111,15 @@ $("input").change(function() {
 	$("#total-price").val(calcul * elevatorUnitPrice);
 	console.log("Mon résultat est:", + elevatorUnitPrice);
 
-	var calculfinal = calcul * elevatorUnitPrice;
+	calculfinal = calcul * elevatorUnitPrice;
 	console.log("Mon résultat est:", calculfinal);
 
-	var tPrice = $("#total-price").val($("#unit-price").val() * $("#e-amount").val());
+	tPrice = $("#unit-price").val() * $("#e-amount").val() * Fees;
 	console.log("The total price is:", tPrice);
+
+	$("#inst-fees").val(tPrice);
+
+	$("#final").val(calculfinal + tPrice);
 
 
 })
@@ -149,8 +151,8 @@ $("input").change(function() {
 					//});
 
 					$("input").change(function() {
-						var numberOfCages = $("#nbelev").val()
-						console.log("number-of-cages is", $("#nbelev").val());
+						numberOfCages = $("#nbelev").val()
+						console.log("number-of-cages is", numberOfCages);
 						var nbCages = numberOfCages;
 						console.log("Eureka:", nbCages)
 						$("#e-amount").val(nbCages);
