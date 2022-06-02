@@ -47,6 +47,10 @@
 			var calcul = 0;	
 			var totalFees = 0;
 			var tPrice = 0;
+			var totalFloors = 0;
+			var totalMaxOcc = 0;
+			var numberOfShafts = 0;
+			var avgElevatorsByColumn = 0;
 
 
 			$("input[name='btype']").click(function() {
@@ -187,12 +191,10 @@
 						$("#final").val(calculfinal + tPrice);	
 
 					})
-				
-
-
-
-// END OF COMMERCIAL					
+							
 				}
+// END OF COMMERCIAL
+
 				if ($("#corporate").is(":checked")) {
 					$("#number-of-apartments").hide();
 					$("#number-of-floors").show();
@@ -204,8 +206,65 @@
 					$("#maximum-occupancy").show();
 					$("#business-hours").hide();
 
-// END OF CORPORATE				
+					// function to give the price of the product line choosen by user
+
+					$("input[name='line']").click(function() {
+						elevatorUnitPrice = $(this).val()
+						console.log("elevator unit price is:", $(this).val());	
+					$("#unit-price").val(elevatorUnitPrice);
+						console.log("the number is:", $(this).val());
+					$("#total-price").val($("#unit-price").val() * $("#e-amount").val());
+						console.log("Elevator total price is :", $("#total-price").val());
+					
+					// to get the inst. fees automatically
+
+					
+					Fees = $("#result").val();
+					console.log("les fees sont ", + Fees);
+
+					})
+
+					$("input").change(function() {
+						totalFloors = (+$("#nbfloor").val() + +$("#nbbase").val())
+						console.log(totalFloors);
+						maximumOccupancy = $("#maxocc").val()
+						totalMaxOcc = totalFloors * maximumOccupancy
+						console.log("The max occ is :", + totalMaxOcc);
+						numberOfElevators = totalMaxOcc / 1000;
+						console.log("nbelev is:", numberOfElevators);
+						numberOfShafts = totalFloors / 20;
+						console.log("nbshafts :", numberOfShafts);
+						//divide nb elevators by nb of shafts
+						avgElevatorsByColumn = numberOfElevators / numberOfShafts
+						console.log("The avg is :" + avgElevatorsByColumn);
+						numberOfCages = Math.ceil(avgElevatorsByColumn * numberOfShafts)
+						console.log("number-of-cages is", numberOfCages);
+						
+						$("#e-amount").val(numberOfCages);
+						console.log("Elevator amount needed", numberOfCages);
+
+						$("#total-price").val(numberOfCages * elevatorUnitPrice);
+						console.log("Mon résultat est:", + elevatorUnitPrice);
+
+						calculfinal = (numberOfCages * elevatorUnitPrice);
+						console.log("Mon résultat est:", calculfinal);
+
+						tPrice = $("#unit-price").val() * $("#e-amount").val() * Fees;
+						console.log("Installation price:", tPrice);
+
+						$("#inst-fees").val(tPrice);
+
+						$("#final").val(calculfinal + tPrice);	
+
+
+					})
+
+
+
+
 				}
+// END OF CORPORATE				
+				
 				if ($("#hybrid").is(":checked")) {
 					$("#number-of-apartments").hide();
 					$("#number-of-floors").show();
@@ -217,6 +276,10 @@
 					$("#maximum-occupancy").show();
 					$("#business-hours").show();
 
+
+
+
+					
 // ENND OF HYBRID					
 				}
 				
@@ -256,26 +319,3 @@ function myFunction(line) {
 			//		console.log("Mathieu:", totalFees);
 			//	}
 		//	});			
-		
-	
-
-
-
-
-
-
-			
-// This is the first function - if commercial, nb elevetaors is given & nb elevators = required nb evaluated
-
-
-// This is the second function - if residential, lets divide nb of apartments / nb of floors (without nb of basements). The result = nb of apartements by floor.
-// We need 1 elevator for each 6 apartments. If apartments > 20 floors, we need 2 elevators. Add 1 shaft of elevators for each 20 apartements.
-
-
-// This is the third function - if corporate or hydrid, we multiply nb max occupancy by nb of floors = nb occupancy total. The number of elevator = nb occupancy total / 1000.
-// Then we divide nb of floors (with the nb of basement) by 20 = nb of elevators columns required. Then we divide nb of elevators by nb of columns = average of elevators by columns.
-// Total nb of elevators = this average multiplied by nb of columns.
-
-
-//BUDGET CALCULATION AFTER THE NB OF ELEVATORS WAS FOUND
-// This is the fourth function - 
