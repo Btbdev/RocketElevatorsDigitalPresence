@@ -67,9 +67,7 @@
 							console.log("The average of apartment per floor is:" + avgOfApartByFloor);
 							numberOfElevatorShaft = Math.ceil(avgOfApartByFloor / 6)
 							console.log("The nb of elevator shaft required :" + numberOfElevatorShaft);
-							// i have 3 shafts
-							//15 1
-							//12.19 - 3
+							
 							numberOfColumns = Math.ceil(numberOfFloors / 20)
 							console.log("The number of columns is:" + numberOfColumns)
 

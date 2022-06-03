@@ -255,7 +255,7 @@
 							<label>Elevator amount</label>
 							<input type ="number" ClassName="" name="elevator-amount" readonly id="e-amount">
 						</div>
-						
+	<!-- fields avec money format et script à downloader ?-->					
 						<div id="elevator-unit-price">
 							<label>Elevator unit price</label>
 							<input type ="number" data-type="currency" name="elevator-unit-price" readonly id="unit-price">
@@ -299,191 +299,10 @@
 						<hr />
 						
 
-
-						
-
-						
-							
-
-						
-
 			</section>		
 			
-			
-
-
-
-
 			<hr class="m-0" /><!-- 1px line separator --> <!-- to add a line separator showing the end of the quote -->
 			
-
-<!-- 			
-			<section id="contact">
-				<div class="container">
-
-					<header class="text-center mb-60">
-						<h2>Contact Us</h2>
-						<p class="lead font-lato">Elevate your future</p>
-						<hr />
-					</header>
-
-
-					<div class="row">
-
-						 FORM
-						<div class="col-md-8 col-sm-8">
-
-							<h3>Contact us today</h3>
-
-						
-
-							<div id="alert_success" class="alert alert-success mb-30">
-								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-								<strong>Thank You!</strong> Your message successfully sent!
-							</div>
-
-
-							
-							<div id="alert_failed" class="alert alert-danger mb-30">
-								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-								<strong>[SMTP] Error!</strong> Internal server error!
-							</div>
-
-
-							<div id="alert_mandatory" class="alert alert-danger mb-30">
-								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-								<strong>Sorry!</strong> You need to complete all mandatory (*) fields!
-							</div>
-
-							<form action="php/contact.php" method="post" enctype="multipart/form-data">
-								<fieldset>
-									<input type="hidden" name="action" value="contact_send" />
-
-									<div class="row">
-											<div class="col-md-4">
-												<label for="contact:name">Full Name *</label>
-												<input required type="text" value="" class="form-control" name="contact[name][required]" id="contact:name">
-											</div>
-											<div class="col-md-4">
-												<label for="contact:email">E-mail Address *</label>
-												<input required type="email" value="" class="form-control" name="contact[email][required]" id="contact:email">
-											</div>
-											<div class="col-md-4">
-												<label for="contact:phone">Phone</label>
-												<input type="text" value="" class="form-control" name="contact[phone]" id="contact:phone">
-											</div>
-									</div>
-									<div class="row">
-										<div class="col-md-6">
-											<label for="contact:subject">Company Name *</label> 
-											<input required type="text" value="" class="form-control" name="contact[company_name][required]" id="contact:company_name">
-										</div>
-										<div class="col-md-6">
-											<label for="contact:subject">Project Name *</label>  
-											<input required type="text" value="" class="form-control" name="contact[project_name][required]" id="contact:project_name">
-										</div>
-									</div>						
-									<div class="row">
-											<div class="col-md-12">
-												<label for="contact:message">Project description *</label> 
-												<textarea required maxlength="8000" rows="6" class="form-control" name="contact[project_description][required]" id="contact:project_description"></textarea>
-											</div>		
-									</div>		
-									<div class="row">		
-											<div class="col-md-12">
-												<label for="contact_department">Department</label>
-												<select class="form-control pointer" name="contact[department]">
-													<option value="">--- Select ---</option>
-													<option value="Marketing">Residential</option>
-													<option value="Webdesign">Commercial</option>
-											
-												</select>
-											</div>
-									</div>
-									<div class="row">
-											<div class="col-md-12">
-												<label for="contact:message">Message *</label>
-												<textarea required maxlength="10000" rows="8" class="form-control" name="contact[message][required]" id="contact:message"></textarea>
-											</div>
-									</div>
-									
-									<div class="row">
-											<div class="col-md-12">
-												<label for="contact:attachment">File Attachment (ex. plans)</label>
-
-												
-												<div class="fancy-file-upload fancy-file-danger">
-													<i class="fa fa-upload"></i>
-													<input type="file" class="form-control" name="contact[attachment]" onchange="jQuery(this).next('input').val(this.value);" />
-													<input type="text" class="form-control" placeholder="no file selected" readonly="" />
-													<span class="button">Select a File</span>
-												
-												
-												
-												
-												
-												
-
-											</div>
-									</div>
-
-								</fieldset>
-
-								<div class="row">
-									<div class="col-md-12">
-										<button type="submit" class="btn btn-danger"><i class="fa fa-check"></i> SEND MESSAGE</button>
-									</div>
-								</div>
-							</form>
-
-						</div>
-						
-
-
-					
-						<div class="col-md-4 col-sm-4">
-
-							<h2>Visit Us</h2>
-
-							
-							Available heights
-								h-100
-								h-150
-								h-200
-								h-250
-								h-300
-								h-350
-								h-400
-								h-450
-								h-500
-								h-550
-								h-600
-							
-							<div class="h-600 color">
-								<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2729.407874999146!2d-71.29402718255615!3d46.835660100000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cb897e960cb92d3%3A0xd1f81b6230e26c75!2s1165%20Bd%20Lebourgneuf%2C%20Qu%C3%A9bec%2C%20QC%20G2K%202C9!5e0!3m2!1sfr!2sca!4v1653657733198!5m2!1sfr!2sca" width="350" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-	
-							</div>
-
-							<hr />
-
-							<p>
-								<span class="block"><strong><i class="fa fa-map-marker"></i> Address:</strong> 1165 Bd Lebourgneuf Suite 300, Québec, QC G2K 2C9</span>
-								<span class="block"><strong><i class="fa fa-phone"></i> Phone:</strong> <a href="tel:1800-555-1234" class="danger">(418)555-1234</a></span>
-								<span class="block"><strong><i class="fa fa-envelope"></i> Email:</strong> <a href="mailto:mail@yourdomain.com">info@codeboxx.biz</a></span>
-							</p>
-
-						</div>
-						
-
-					</div>
-
-				</div>
-			</section> -->
-			
-
-
-
-
 			<!-- FOOTER -->
 			<footer id="footer">
 				<div class="container">
@@ -578,7 +397,12 @@
 
 		<!-- PAGELEVEL SCRIPTS -->
 		<script src="assets/js/contact.js"></script>
+	
 
+		<script type="text/javascript">
+			// Library ready to use:
+			accounting.formatMoney(5318008);
+		</script>
 		<!-- 
 			GMAP.JS 
 			http://hpneo.github.io/gmaps/
