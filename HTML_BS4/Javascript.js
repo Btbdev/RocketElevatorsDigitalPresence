@@ -15,6 +15,7 @@
 			var totalNumberOfOccupants = 0;
 			var numberOfCages = 0;
 			var Fees = 0;
+			var instFees = 0;
 			var elevatorUnitPrice = 0;
 			var calcul = 0;	
 			var totalFees = 0;
@@ -23,8 +24,10 @@
 			var totalMaxOcc = 0;
 			var numberOfShafts = 0;
 			var avgElevatorsByColumn = 0;
+			var numberOfElevatorShaft = 0;
+			var numberOfColumns = 0;
 
-
+// DEBUT OF RESIDENTIAL
 			$("input[name='btype']").click(function() {
 				if ($("#residential").is(":checked")) {
 					$("#number-of-apartments").show();
@@ -46,23 +49,14 @@
 					$("#total-price").val($("#unit-price").val() * $("#e-amount").val());
 						console.log("Elevator total price is :", $("#total-price").val());
 				
-					// to get the inst. fees automatically
+					// to get the installation fees automatically
 
-					
 						Fees = $("#result").val();
 						console.log("les fees sont ", + Fees) ;
-						
-						//document.getElementById("result").value;
-						
-						//console.log("attention ! installation fees are :", Fees);
-						//totalFees = $("#total-price").val($("#unit-price").val() * $("#e-amount").val()) * Fees
-						//console.log("Mathieu", + totalFees);
-						//$("#inst-fees").val(totalFees * Fees );
-						//console.log("Elevator amount needed", calcul);
-
+												
 					})
 
-
+					// getting the values from user and some mathematics !
 						$("input").change(function() {
 							numberOfApartments = $("#nbapart").val()
 							console.log("number-of-apartments is:", $("#nbapart").val());
@@ -70,56 +64,42 @@
 							numberOfFloors = $("#nbfloor").val()
 							console.log("number-of-floors is:", $("#nbfloor").val());
 							avgOfApartByFloor = numberOfApartments / numberOfFloors
-							console.log("The average is:" + avgOfApartByFloor);
+							console.log("The average of apartment per floor is:" + avgOfApartByFloor);
+							numberOfElevators = Math.ceil(avgOfApartByFloor / 6)
+							console.log("The nb of elevator required :" + numberOfElevators);
 							
-							
-							//var nbelevatorColumn = numberOfFloor;
-							//console.log("nbelevatorColum is:", nbelevatorColumn)
-							
-							//var nbaparts = numberOfApartments;
-							//console.log("Eureka:", nbaparts)
-							numberOfShafts = numberOfApartments / 6
-							console.log("avg:" + numberOfShafts)
+							//12 - 3
+							numberOfColumns = Math.ceil(numberOfFloors / 20)
+							console.log("The number of columns is:" + numberOfColumns)
 
-//soritr la variable x et dire : si la valeur x > 20
-							// rules to follow 1 shaft for 6 apartements
-							// if stories > 20 add 1 more shaft
-							// for each 20 stories, add a new column +1
-							
-							
-							if (numberOfFloors > 20) {
-									numberOfShafts
-							}
-							
-							
-
-							calcul = nbaparts / nbelevatorColumn;
-							console.log("Eureka2:", calcul)
-
-						// operation to find the nb of
-							$("#e-amount").val(nbaparts / nbelevatorColumn);
-							console.log("Elevator amount needed", calcul);
+							// to calculate the number of elevator needed
 
 							
-							$("#total-price").val(calcul * elevatorUnitPrice);
-							console.log("Mon résultat est:", + elevatorUnitPrice);
+							// to calculate the amount of elevator needed 
+							$("#e-amount").val(numberOfElevators);
+							console.log("Elevator amount needed", numberOfElevators);
 
-							calculfinal = calcul * elevatorUnitPrice;
-							console.log("Mon résultat est:", calculfinal);
+							// to calculate the total price
+							tPrice = numberOfElevators * elevatorUnitPrice
+							$("#total-price").val(tPrice);
+							console.log("Mon résultat est:", tPrice);
 
-							tPrice = $("#unit-price").val() * $("#e-amount").val() * Fees;
-							console.log("The total price is:", tPrice);
+							//calculfinal = calcul * elevatorUnitPrice;
+							//console.log("Mon résultat est:", calculfinal);
 
-							$("#inst-fees").val(tPrice);
+							instFees = $("#unit-price").val() * $("#e-amount").val() * Fees;
+							console.log("The total price is:", instFees);
 
-							$("#final").val(calculfinal + tPrice);
+							$("#inst-fees").val(instFees);
+
+							$("#final").val(instFees + tPrice);
 
 					})
 
 				}	
 //END OF RESIDENTIAL
 
-
+//DEBUT OF COMMERCIAL
 				if ($("#commercial").is(":checked")) {
 					$("#number-of-apartments").hide();
 					$("#number-of-floors").show();
@@ -141,15 +121,14 @@
 					$("#total-price").val($("#unit-price").val() * $("#e-amount").val());
 						console.log("Elevator total price is :", $("#total-price").val());
 					
-					// to get the inst. fees automatically
+					// to get the installation fees automatically
 
 					Fees = $("#result").val();
 					console.log("les fees sont ", + Fees) ;
 						
-					
 					})
 					
-					
+					// getting the values from user and some mathematics !
 					$("input").change(function() {
 						numberOfCages = $("#nbelev").val()
 						console.log("number-of-cages is", numberOfCages);
@@ -176,6 +155,7 @@
 				}
 // END OF COMMERCIAL
 
+// DEBUT OF CORPORATE
 				if ($("#corporate").is(":checked")) {
 					$("#number-of-apartments").hide();
 					$("#number-of-floors").show();
@@ -197,14 +177,14 @@
 					$("#total-price").val($("#unit-price").val() * $("#e-amount").val());
 						console.log("Elevator total price is :", $("#total-price").val());
 					
-					// to get the inst. fees automatically
-
+					// to get the installation fees automatically
 					
 					Fees = $("#result").val();
 					console.log("les fees sont ", + Fees);
 
 					})
 
+					// getting the values from user and some mathematics !
 					$("input").change(function() {
 						totalFloors = (+$("#nbfloor").val() + +$("#nbbase").val())
 						console.log(totalFloors);
@@ -237,12 +217,12 @@
 
 						$("#final").val(calculfinal + tPrice);	
 
-
 					})
 
 				}
 // END OF CORPORATE				
-				
+
+// DEBUT OF HYBRID
 				if ($("#hybrid").is(":checked")) {
 					$("#number-of-apartments").hide();
 					$("#number-of-floors").show();
@@ -264,14 +244,14 @@
 					$("#total-price").val($("#unit-price").val() * $("#e-amount").val());
 						console.log("Elevator total price is :", $("#total-price").val());
 					
-					// to get the inst. fees automatically
+					// to get the installation fees automatically
 
-					
-					Fees = $("#result").val();
+										Fees = $("#result").val();
 					console.log("les fees sont ", + Fees);
 
 					})
 
+					// getting the values from user and some mathematics !
 					$("input").change(function() {
 						totalFloors = (+$("#nbfloor").val() + +$("#nbbase").val())
 						console.log(totalFloors);
@@ -304,18 +284,13 @@
 
 						$("#final").val(calculfinal + tPrice);	
 
-
 					})
-
-
 				}	
 // END OF HYBRID					
-				
 			});	
-			
 		});
 
-// Functions to make some calculations
+
 
 
 		
@@ -336,13 +311,13 @@ function myFunction(line) {
 			console.log("enfin ? :", + line.id);
 			};
 
+// function to convert to value with desired format presentation
 
-			//$("input[name='productline']").click(function () {
-			//	if ($("#standard").is(".checked")) {
-			//		$(this).val();
-			//		var Fees = 0.1;
-			//		var totalFees = Fees * $("#total-price").val($("#unit-price").val() * $("#e-amount").val());
-			//		$("#inst-fees").val(totalFees);
-			//		console.log("Mathieu:", totalFees);
-			//	}
-		//	});			
+//var b = document.getElementsByClassName("monetary");
+//b.addEventListener("change",function() {
+//	var m = document.getElementsByClassName("monetary").value;
+//	var numUSD = new Intl.NumberFormat("en-US", {
+//		style:"currency",
+//		console.log("monetary test:" + monetary)
+//	})
+//});
