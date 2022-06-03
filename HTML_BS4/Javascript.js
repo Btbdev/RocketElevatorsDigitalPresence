@@ -65,15 +65,16 @@
 							console.log("number-of-floors is:", $("#nbfloor").val());
 							avgOfApartByFloor = numberOfApartments / numberOfFloors
 							console.log("The average of apartment per floor is:" + avgOfApartByFloor);
-							numberOfElevators = Math.ceil(avgOfApartByFloor / 6)
-							console.log("The nb of elevator required :" + numberOfElevators);
-							
-							//12 - 3
+							numberOfElevatorShaft = Math.ceil(avgOfApartByFloor / 6)
+							console.log("The nb of elevator shaft required :" + numberOfElevatorShaft);
+							// i have 3 shafts
+							//15 1
+							//12.19 - 3
 							numberOfColumns = Math.ceil(numberOfFloors / 20)
 							console.log("The number of columns is:" + numberOfColumns)
 
-							// to calculate the number of elevator needed
-
+							// to calculate the number of elevators needed (shafts * columns)
+							numberOfElevators = numberOfElevatorShaft * numberOfColumns
 							
 							// to calculate the amount of elevator needed 
 							$("#e-amount").val(numberOfElevators);
