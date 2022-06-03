@@ -26,7 +26,9 @@
 			var avgElevatorsByColumn = 0;
 			var numberOfElevatorShaft = 0;
 			var numberOfColumns = 0;
-
+			var finalPrice = 0;
+			
+			
 // DEBUT OF RESIDENTIAL
 			$("input[name='btype']").click(function() {
 				if ($("#residential").is(":checked")) {
@@ -43,57 +45,61 @@
 					// function to give the price of the product line choosen by user
 					$("input[name='line']").click(function() {
 						elevatorUnitPrice = $(this).val()
-						console.log("elevator unit price is:", $(this).val());	
+						//console.log("elevator unit price is:", $(this).val());	
 					$("#unit-price").val(elevatorUnitPrice);
-						console.log("the number is:", $(this).val());
+						//console.log("the number is:", $(this).val());
+						
 					$("#total-price").val($("#unit-price").val() * $("#e-amount").val());
-						console.log("Elevator total price is :", $("#total-price").val());
+						//console.log("Elevator total price is :", $("#total-price").val());
 				
 					// to get the installation fees automatically
 
 						Fees = $("#result").val();
-						console.log("les fees sont ", + Fees) ;
+						//console.log("fees are", + Fees) ;
 												
 					})
 
 					// getting the values from user and some mathematics !
 						$("input").change(function() {
 							numberOfApartments = $("#nbapart").val()
-							console.log("number-of-apartments is:", $("#nbapart").val());
+							//console.log("number-of-apartments is:", $("#nbapart").val());
 
 							numberOfFloors = $("#nbfloor").val()
-							console.log("number-of-floors is:", $("#nbfloor").val());
+							//console.log("number-of-floors is:", $("#nbfloor").val());
 							avgOfApartByFloor = numberOfApartments / numberOfFloors
-							console.log("The average of apartment per floor is:" + avgOfApartByFloor);
+							//console.log("The average of apartment per floor is:" + avgOfApartByFloor);
 							numberOfElevatorShaft = Math.ceil(avgOfApartByFloor / 6)
-							console.log("The nb of elevator shaft required :" + numberOfElevatorShaft);
+							//console.log("The nb of elevator shaft required :" + numberOfElevatorShaft);
 							
 							numberOfColumns = Math.ceil(numberOfFloors / 20)
-							console.log("The number of columns is:" + numberOfColumns)
+							//console.log("The number of columns is:" + numberOfColumns)
 
 							// to calculate the number of elevators needed (shafts * columns)
 							numberOfElevators = numberOfElevatorShaft * numberOfColumns
 							
 							// to calculate the amount of elevator needed 
 							$("#e-amount").val(numberOfElevators);
-							console.log("Elevator amount needed", numberOfElevators);
+							//console.log("Elevator amount needed", numberOfElevators);
 
+							
 							// to calculate the total price
 							tPrice = numberOfElevators * elevatorUnitPrice
 							$("#total-price").val(tPrice);
-							console.log("Mon résultat est:", tPrice);
+							//console.log("Result is:", tPrice);
+							$("#total-price").val(tPrice.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') + " $");
 
-							//calculfinal = calcul * elevatorUnitPrice;
-							//console.log("Mon résultat est:", calculfinal);
-
+							// to calculate the installation fees
 							instFees = $("#unit-price").val() * $("#e-amount").val() * Fees;
-							console.log("The total price is:", instFees);
-
+							//console.log("The total price is:", instFees);
 							$("#inst-fees").val(instFees);
+							$("#inst-fees").val(instFees.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') + " $");
 
+							// to calculate final price
 							$("#final").val(instFees + tPrice);
+							finalPrice = +instFees + +tPrice
+							$("#final").val(finalPrice.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') + " $");
 
-					})
+					});
 
 				}	
 //END OF RESIDENTIAL
@@ -114,41 +120,42 @@
 
 					$("input[name='line']").click(function() {
 						elevatorUnitPrice = $(this).val()
-						console.log("elevator unit price is:", $(this).val());	
+						//console.log("elevator unit price is:", $(this).val());	
 					$("#unit-price").val(elevatorUnitPrice);
-						console.log("the number is:", $(this).val());
+						//console.log("the number is:", $(this).val());
 					$("#total-price").val($("#unit-price").val() * $("#e-amount").val());
-						console.log("Elevator total price is :", $("#total-price").val());
+						//console.log("Elevator total price is :", $("#total-price").val());
 					
 					// to get the installation fees automatically
-
 					Fees = $("#result").val();
-					console.log("les fees sont ", + Fees) ;
+					//console.log("fees are", + Fees) ;
 						
 					})
 					
 					// getting the values from user and some mathematics !
 					$("input").change(function() {
 						numberOfCages = $("#nbelev").val()
-						console.log("number-of-cages is", numberOfCages);
-						//var nbCages = numberOfCages;
-						//console.log("Eureka:", nbCages)
+						//console.log("number-of-cages is", numberOfCages);
+						
 						$("#e-amount").val(numberOfCages);
-						console.log("Elevator amount needed", numberOfCages);
+						//console.log("Elevator amount needed", numberOfCages);
 
+						// to calculate the total price
 						$("#total-price").val(numberOfCages * elevatorUnitPrice);
-						console.log("Mon résultat est:", + elevatorUnitPrice);
+						//console.log("Result is:", + elevatorUnitPrice);
+						tPrice = (numberOfCages * elevatorUnitPrice);
+						$("#total-price").val(tPrice.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') + "$");
 
-						calculfinal = (numberOfCages * elevatorUnitPrice);
-						console.log("Mon résultat est:", calculfinal);
+						// to calculate the installation fees
+						instFees = $("#unit-price").val() * $("#e-amount").val() * Fees;
+						//console.log("Installation price:", tPrice);
+						$("#inst-fees").val(instFees);
+						$("#inst-fees").val(instFees.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') + "$");
 
-						tPrice = $("#unit-price").val() * $("#e-amount").val() * Fees;
-						console.log("Installation price:", tPrice);
-
-						$("#inst-fees").val(tPrice);
-
-						$("#final").val(calculfinal + tPrice);	
-
+						// to calculate final price
+						$("#final").val(instFees + tPrice);	
+						finalPrice = +instFees + +tPrice
+						$("#final").val(finalPrice.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') + "$");
 					})
 							
 				}
@@ -170,51 +177,58 @@
 
 					$("input[name='line']").click(function() {
 						elevatorUnitPrice = $(this).val()
-						console.log("elevator unit price is:", $(this).val());	
+						//console.log("elevator unit price is:", $(this).val());	
 					$("#unit-price").val(elevatorUnitPrice);
-						console.log("the number is:", $(this).val());
+						//console.log("the number is:", $(this).val());
 					$("#total-price").val($("#unit-price").val() * $("#e-amount").val());
-						console.log("Elevator total price is :", $("#total-price").val());
+						//console.log("Elevator total price is :", $("#total-price").val());
 					
 					// to get the installation fees automatically
 					
 					Fees = $("#result").val();
-					console.log("les fees sont ", + Fees);
+					//console.log("fees are", + Fees);
 
 					})
 
 					// getting the values from user and some mathematics !
 					$("input").change(function() {
 						totalFloors = (+$("#nbfloor").val() + +$("#nbbase").val())
-						console.log(totalFloors);
+						//console.log(totalFloors);
 						maximumOccupancy = $("#maxocc").val()
 						totalMaxOcc = totalFloors * maximumOccupancy
-						console.log("The max occ is :", + totalMaxOcc);
+						//console.log("The max occ is :", + totalMaxOcc);
 						numberOfElevators = totalMaxOcc / 1000;
-						console.log("nbelev is:", numberOfElevators);
+						//console.log("nbelev is:", numberOfElevators);
 						numberOfShafts = totalFloors / 20;
-						console.log("nbshafts :", numberOfShafts);
+						//console.log("nbshafts :", numberOfShafts);
 						//divide nb elevators by nb of shafts
 						avgElevatorsByColumn = numberOfElevators / numberOfShafts
-						console.log("The avg is :" + avgElevatorsByColumn);
+						//console.log("The avg is :" + avgElevatorsByColumn);
 						numberOfCages = Math.ceil(avgElevatorsByColumn * numberOfShafts)
-						console.log("number-of-cages is", numberOfCages);
+						//console.log("number-of-cages is", numberOfCages);
 						
 						$("#e-amount").val(numberOfCages);
-						console.log("Elevator amount needed", numberOfCages);
+						//console.log("Elevator amount needed", numberOfCages);
 
+
+						// to calculate the total price
 						$("#total-price").val(numberOfCages * elevatorUnitPrice);
-						console.log("Mon résultat est:", + elevatorUnitPrice);
+						//console.log("Mon résultat est:", + elevatorUnitPrice);
+						tPrice = (numberOfCages * elevatorUnitPrice);
+						//console.log("Mon résultat est:", calculfinal);
+						$("#total-price").val(tPrice.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') + " $");
 
-						calculfinal = (numberOfCages * elevatorUnitPrice);
-						console.log("Mon résultat est:", calculfinal);
+						// to calculate the installation fees
+						instFees = $("#unit-price").val() * $("#e-amount").val() * Fees;
+						//console.log("Installation price:", tPrice);
+						$("#inst-fees").val(instFees);
+						$("#inst-fees").val(instFees.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') + " $");
+						
+						// to calculate final price
+						$("#final").val(instFees + tPrice);	
+						finalPrice = +instFees + +tPrice
+						$("#final").val(finalPrice.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') + "$");
 
-						tPrice = $("#unit-price").val() * $("#e-amount").val() * Fees;
-						console.log("Installation price:", tPrice);
-
-						$("#inst-fees").val(tPrice);
-
-						$("#final").val(calculfinal + tPrice);	
 
 					})
 
@@ -245,43 +259,49 @@
 					
 					// to get the installation fees automatically
 
-										Fees = $("#result").val();
-					console.log("les fees sont ", + Fees);
+					Fees = $("#result").val();
+					//console.log("fees are", + Fees);
 
 					})
 
 					// getting the values from user and some mathematics !
 					$("input").change(function() {
 						totalFloors = (+$("#nbfloor").val() + +$("#nbbase").val())
-						console.log(totalFloors);
+						//console.log(totalFloors);
 						maximumOccupancy = $("#maxocc").val()
 						totalMaxOcc = totalFloors * maximumOccupancy
-						console.log("The max occ is :", + totalMaxOcc);
+						//console.log("The max occ is :", + totalMaxOcc);
 						numberOfElevators = totalMaxOcc / 1000;
-						console.log("nbelev is:", numberOfElevators);
+						//console.log("nbelev is:", numberOfElevators);
 						numberOfShafts = totalFloors / 20;
-						console.log("nbshafts :", numberOfShafts);
+						//console.log("nbshafts :", numberOfShafts);
 						//divide nb elevators by nb of shafts
 						avgElevatorsByColumn = numberOfElevators / numberOfShafts
-						console.log("The avg is :" + avgElevatorsByColumn);
+						//console.log("The avg is :" + avgElevatorsByColumn);
 						numberOfCages = Math.ceil(avgElevatorsByColumn * numberOfShafts)
-						console.log("number-of-cages is", numberOfCages);
+						//console.log("number-of-cages is", numberOfCages);
 						
 						$("#e-amount").val(numberOfCages);
-						console.log("Elevator amount needed", numberOfCages);
+						//console.log("Elevator amount needed", numberOfCages);
 
+
+						// to calculate the total price
 						$("#total-price").val(numberOfCages * elevatorUnitPrice);
-						console.log("Mon résultat est:", + elevatorUnitPrice);
+						//console.log("Mon résultat est:", + elevatorUnitPrice);
+						tPrice = (numberOfCages * elevatorUnitPrice);
+						$("#total-price").val(tPrice.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') + " $");
+						
+						// to calculate the installation fees
+						instFees = $("#unit-price").val() * $("#e-amount").val() * Fees;
+						//console.log("Installation price:", tPrice);
+						$("#inst-fees").val(instFees);
+						$("#inst-fees").val(instFees.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') + " $");
 
-						calculfinal = (numberOfCages * elevatorUnitPrice);
-						console.log("Mon résultat est:", calculfinal);
+						// to calculate final price
+						$("#final").val(instFees + tPrice);	
+						finalPrice = +instFees + +tPrice
+						$("#final").val(finalPrice.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') + "$");
 
-						tPrice = $("#unit-price").val() * $("#e-amount").val() * Fees;
-						console.log("Installation price:", tPrice);
-
-						$("#inst-fees").val(tPrice);
-
-						$("#final").val(calculfinal + tPrice);	
 
 					})
 				}	
@@ -309,6 +329,9 @@ function myFunction(line) {
 			document.getElementById("result").value = line.id;
 			console.log("enfin ? :", + line.id);
 			};
+
+
+
 
 // function to convert to value with desired format presentation
 
