@@ -213,9 +213,9 @@
 
 						// to calculate the total price
 						$("#total-price").val(numberOfCages * elevatorUnitPrice);
-						//console.log("Mon résultat est:", + elevatorUnitPrice);
+						//console.log("Result is:", + elevatorUnitPrice);
 						tPrice = (numberOfCages * elevatorUnitPrice);
-						//console.log("Mon résultat est:", calculfinal);
+						//console.log("Result is:", calculfinal);
 						$("#total-price").val(tPrice.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') + " $");
 
 						// to calculate the installation fees
@@ -287,7 +287,7 @@
 
 						// to calculate the total price
 						$("#total-price").val(numberOfCages * elevatorUnitPrice);
-						//console.log("Mon résultat est:", + elevatorUnitPrice);
+						//console.log("Result is", + elevatorUnitPrice);
 						tPrice = (numberOfCages * elevatorUnitPrice);
 						$("#total-price").val(tPrice.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') + " $");
 						
@@ -315,31 +315,14 @@
 		
 // function to get the value of the choosen line product
 
-function instFees() {
-	var x = $("#nbfloor").val();
-	console.log("test de variable global:", $("#nbfloor").val());
-};
 
 function myFunction(line) {
 			document.getElementById("result").value = line.value;
-			console.log("Test du matin:" + line.id);
+			//console.log("value is:" + line.id);
 			};
 
 function myFunction(line) {
 			document.getElementById("result").value = line.id;
-			console.log("enfin ? :", + line.id);
+			//console.log("Fees :", + line.id);
 			};
-
-
-
-
-// function to convert to value with desired format presentation
-
-//var b = document.getElementsByClassName("monetary");
-//b.addEventListener("change",function() {
-//	var m = document.getElementsByClassName("monetary").value;
-//	var numUSD = new Intl.NumberFormat("en-US", {
-//		style:"currency",
-//		console.log("monetary test:" + monetary)
-//	})
-//});
+// THE END !
